@@ -17,5 +17,21 @@ describe StringCalculator do
         expect(described_class.add('1,5')).to eq 6
       end
     end
+
+    context 'When multiple comma seperated numbers are given' do
+      it 'Should return 10' do
+        expect(described_class.add('2,3,5')).to eq 10
+      end
+
+      it 'Should return 20' do
+        expect(described_class.add('2,3, 5, 10')).to eq 20
+      end
+    end
+
+    context 'When there is a new line between numbers' do
+      it 'Should return sum of numbers 12' do
+        expect(described_class.add("3\n4,6")).to eq 13
+      end
+    end
   end
 end
