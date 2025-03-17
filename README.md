@@ -7,9 +7,10 @@
    
 
       git clone https://github.com/naiyyar/tdd_string_calculator.git
+
       cd tdd_string_calculator
     
-2.  Install dependencies:
+3.  Install dependencies:
   
 
       bundle install
