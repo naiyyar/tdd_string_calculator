@@ -5,6 +5,11 @@ class StringCalculator
 
     delimiter = ','
 
+    if string.start_with?('//')
+      delimiter_str, string = string.split("\n")
+      delimiter = delimiter_str[2..]
+    end
+
     string = string.gsub("\n", delimiter) if string.include?("\n")
 
     string.split(delimiter).map(&:to_i).sum
