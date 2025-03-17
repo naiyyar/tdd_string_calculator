@@ -3,10 +3,10 @@ class StringCalculator
     return 0 if string.empty?
     return string.to_i if string.length == 1
 
-    if string.include?("\n")
-      string.gsub("\n", ',').split(',').map(&:to_i).sum
-    else
-      string.split(',').map(&:to_i).sum
-    end
+    delimiter = ','
+
+    string = string.gsub("\n", delimiter) if string.include?("\n")
+
+    string.split(delimiter).map(&:to_i).sum
   end
 end
