@@ -1,15 +1,14 @@
 class StringCalculator
   def self.add string
     return 0 if string.empty?
-    return string.to_i if string.length == 1
 
     delimiter = ','
 
     if string.start_with?('//')
-      delimiter_str, *string = string.split("\n")
+      delimiter_str, *string = string.split("\n") # *string just for this case "//;\n1;2\n3"
       delimiter = delimiter_str[2..]
 
-      string = string.join(delimiter) # Handling extra case "//;\n1;2\n3"
+      string = string.join(delimiter) # Handling extra case "//;\n1;2\n3" or "//;\n1;2\n3:1"
     end
 
     string = string.gsub("\n", delimiter) if string.include?("\n")
