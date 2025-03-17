@@ -38,6 +38,11 @@ describe StringCalculator do
       it 'Should return 3' do
         expect(described_class.add("//;\n1;2")).to eq(3)
       end
+
+      # Extra case
+      it 'Should return 6' do
+        expect(described_class.add("//;\n1;2\n3")).to eq(6)
+      end
     end
   end
 end

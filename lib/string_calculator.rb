@@ -6,8 +6,10 @@ class StringCalculator
     delimiter = ','
 
     if string.start_with?('//')
-      delimiter_str, string = string.split("\n")
+      delimiter_str, *string = string.split("\n")
       delimiter = delimiter_str[2..]
+
+      string = string.join(delimiter) # Handling extra case "//;\n1;2\n3"
     end
 
     string = string.gsub("\n", delimiter) if string.include?("\n")
